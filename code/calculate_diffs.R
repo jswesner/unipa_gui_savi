@@ -3,6 +3,7 @@ library(janitor)
 library(lubridate)
 library(brms)
 library(readxl)
+library(tidybayes)
 
 # load data
 data_hobo_cleaned = read_csv(file = "data/data_hobo_cleaned.csv")
@@ -40,6 +41,5 @@ plot_diffs = hobo_post_diffs %>%
        y = "Change in temperature over interval") +
   ylim(-20, 20) +
   geom_hline(yintercept = 0)
-
 
 ggsave(plot_diffs, file = "plots/plot_diffs.jpg")
